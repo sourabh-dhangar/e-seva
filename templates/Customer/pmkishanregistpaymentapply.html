@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+            {% include "includes/messages.html" %}
+             <marquee style="color: red;">
+
+               
+                क्रप्या कर के जानकारी भरते समय रिफ्रेश न करें।                        
+             </marquee>
+             <h3 class="page-title">PM Kisan</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="students.html">Card</a></li>
+                <li class="breadcrumb-item active">PM Kisan Payment Detail</li>
+             </ul>
+          </div>
+       </div>
+       <p>PM Kisan Payment Detail</p>
+       
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form method="POST" action="{% url 'find_pm_kishan_payment_details_save' %}">
+                    {% csrf_token %}
+                   <div class="row">
+                      <div class="col-12">
+                         <h5 class="form-title"><span>PM Kishan Information</span></h5>
+                      </div>
+                      
+                      
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Aadhar Number</label>
+                            <input type="text" class="form-control" name="aadhar_number">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>PM kishan Id</label>
+                            <input type="text" class="form-control" name="pm_kishan_id">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="text" class="form-control" name="mobile_number">
+                         </div>
+                      </div>
+                     
+                      <div class="col-12">
+                         <button type="submit" class="btn btn-primary">Rs/-{{amount.amount16}} pay</button>
+                      </div>
+                   </div>
+                </form>
+                {% if payment %}
+        <form action="{% url 'pmkishapaymentstatus' %}" method="POST">
+            {% csrf_token %}
+            <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_pwchuxr8hCkkZZ"
+                data-amount="{{payment.amount}}" 
+                data-currency="INR"
+                data-order_id="{{payment.id}}"
+                data-buttontext="Pay with Razorpay"
+                data-name="e-seva"
+                data-description="make your life easier and comfortabler"
+                data-image="https://example.com/your_logo.jpg"
+                data-prefill.name="{{payment.name}}"
+                data-prefill.email="you@example.com"
+                data-theme.color="#F37254"
+            ></script>
+            <input type="hidden" custom="Hidden Element" name="hidden"/>
+            </form>
+            {% endif %}
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
+
+{% endblock content %}

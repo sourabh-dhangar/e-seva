@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+            {% include "includes/messages.html" %}
+             <marquee style="color: red;">
+
+               
+                क्रप्या कर के जानकारी भरते समय रिफ्रेश न करें।                        
+             </marquee>
+             <h3 class="page-title">Match Duplicate Aadhar Pdf</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="students.html">Aadhar Card</a></li>
+                <li class="breadcrumb-item active">Match</li>
+             </ul>
+          </div>
+       </div>
+       <p>We have found matching duplicates for your enrolment request. If you enrolled in the past and forgotten/lost your Aaadhar number on Enrolment Number, you may retrieve the same by accessing Lost EID/UID" section from our portal (www.uidai.gov.in).""</p>
+       <p>Enter EID Details</p>
+       
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form method="POST" action="{% url 'matchaadharcardtopdfsave' %}">
+                  {% csrf_token %}
+                  <div class="row">
+                      <div class="col-12">
+                         <h5 class="form-title"><span>Enter EID Details</span></h5>
+                      </div>
+                      
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Eid No</label>
+                            <input type="text" class="form-control" name="eid">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label> Date </label>
+                            <input type="date" class="form-control" name="date">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Time</label>
+                            <input type="text" class="form-control" name="timehya">
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                         <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="text" class="form-control" name="mobile_number">
+                         </div>
+                      </div>
+                      
+                      
+                      <div class="col-12">
+                         <button type="submit" class="btn btn-primary">Rs/-{{amount.amount8}} pay</button>
+                      </div>
+                   </div>
+                </form>
+                {% if payment %}
+        <form action="{% url 'matchingaadhartopdftatus' %}" method="POST">
+            {% csrf_token %}
+            <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_pwchuxr8hCkkZZ"
+                data-amount="{{payment.amount}}" 
+                data-currency="INR"
+                data-order_id="{{payment.id}}"
+                data-buttontext="Pay with Razorpay"
+                data-name="e-seva"
+                data-description="make your life easier and comfortabler"
+                data-image="https://example.com/your_logo.jpg"
+                data-prefill.name="{{payment.name}}"
+                data-prefill.email="you@example.com"
+                data-theme.color="#F37254"
+            ></script>
+            <input type="hidden" custom="Hidden Element" name="hidden"/>
+            </form>
+            {% endif %}
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
+{% endblock content %}

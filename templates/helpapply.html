@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="content container-fluid">
+    <div class="page-header">
+       
+       <h3 class="text-center">Help Center</h3>
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                      <div class="row g-0 border  overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                          <strong class="d-inline-block mb-2 text-primary">Help Me...</strong>
+                          <img src="{% static 'assets/img/help3.jpg' %}" alt="User Image" class="avatar-img ">
+
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                     
+                        <form method="POST" action="{% url 'help_apply' %}">
+                            {% csrf_token %}
+                           <div class="row">
+                              <div class="col-12">
+                                 <h5 class="form-title"><span>Please send your query</span></h5>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <label> Name</label>
+                                    <input type="text" class="form-control" name="name">
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" name="email">
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input type="text" class="form-control"name="mobile_no">
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" name="description">
+                                 </div>
+                              </div>
+                              <div class="col-12 text-center">
+                                 <button type="submit " class="btn btn-primary">Send query</button>
+                              </div>
+                           </div>
+                        </form>
+                    </div>
+                  </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+{% endblock content %}

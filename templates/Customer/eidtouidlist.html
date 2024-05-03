@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content container-fluid">
+       <div class="page-header">
+          <div class="row align-items-center">
+             <div class="col">
+                {% include "includes/messages.html" %}
+                <h3 class="page-title">Eid To Uid</h3>
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item"><a href="index.html">Eid To Uid</a></li>
+                   <li class="breadcrumb-item active">Eid to Uid</li>
+                </ul>
+             </div>
+             <div class="col-auto text-right float-right ml-auto">
+                <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+                <a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-sm-12">
+             <div class="card card-table">
+                <div class="card-body">
+                   <div class="table-responsive">
+                      <table id="table_id" class="table table-hover table-center mb-0 ">
+                         <thead>
+                            <tr>
+                               <th>ID</th>
+                               <th>Name</th>
+                               <th>Eid</th>
+                               <th>Mobile Number</th>
+                               <th>date</th>
+                               <th>Time</th>
+                               <th>status</th>
+                               <th>UID Number</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            {% for i in customer  %}
+                            <tr>
+                               <td>{{i.id}}</td>
+                               <td>{{i.name }}</td>
+                               <td> {{i.eid}} </td>
+                               <td>{{i.mobile_number}}</td>
+                              
+                               <td>{{i.date}}</td>
+                               <td>{{i.time}}</td>
+                              
+                               
+                               <td>
+                                 {% if i.status == 0 %}
+                                 <p class="text-danger">Pending</p>
+                                 {% elif i.status == 1 %}
+                                 <p class="text-warning">Processing</p>
+                                 {% else %}
+                                 <p class="text-success">Processed</p>
+                                 {% endif %}
+                             </td>
+                             <td>{{i.uid}}</td>
+                               
+                            </tr>
+                            
+                            {% endfor %}
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+
+{% endblock content %}

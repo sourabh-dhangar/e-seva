@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+            <marquee style="color: red;">
+
+                क्रप्या कर के जानकारी भरते समय रिफ्रेश न करें।                        
+             </marquee>
+             <h3 class="page-title">Find Pan</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="students.html">Pan Card</a></li>
+                <li class="breadcrumb-item active">find pan card</li>
+             </ul>
+          </div>
+       </div>
+       <p>pan number approval time taken 15 to 20 minutes, 9 Am to 7 pm</p>
+       
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form method="POST" action="{% url 'pan_number_save' %}">
+                    {% csrf_token %}
+                   <div class="row">
+                      <div class="col-12">
+                        {% include "includes/messages.html" %}
+                         <h5 class="form-title"><span>Please Enter your details</span></h5>
+                      </div>
+                      <div class="col-12 col-sm-10">
+                         <div class="form-group">
+                            <label> Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-10">
+                         <div class="form-group">
+                            <label>Aadhar Number</label>
+                            <input type="text" class="form-control" name="aadhar_number" required>
+                         </div>
+                      </div>
+                      <div class="col-12 col-sm-10">
+                         <div class="form-group">
+                            <label>Mo number</label>
+                            <input type="text" class="form-control" name="mobile_no" required>
+                         </div>
+                      </div>
+                      <div class="col-12">
+                         <button type="submit" class="btn btn-primary">Rs/-{{amount.amount1}} pay</button>
+                      </div>
+                   </div>
+                </form>
+                {% if payment %}
+        <form action="{% url 'findpannumberstatus' %}" method="POST">
+            {% csrf_token %}
+            <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_pwchuxr8hCkkZZ"
+                data-amount="{{payment.amount}}" 
+                data-currency="INR"
+                data-order_id="{{payment.id}}"
+                data-buttontext="Pay with Razorpay"
+                data-name="e-seva"
+                data-description="make your life easier and comfortabler"
+                data-image="https://example.com/your_logo.jpg"
+                data-prefill.name="{{payment.name}}"
+                data-prefill.email="you@example.com"
+                data-theme.color="#F37254"
+            ></script>
+            <input type="hidden" custom="Hidden Element" name="hidden"/>
+            </form>
+            {% endif %}
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
+ {% endblock content %}
+</div>
+
+

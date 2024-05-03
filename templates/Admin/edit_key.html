@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <marquee style="color: red;">
+
+               
+                क्रप्या कर के जानकारी भरते समय रिफ्रेश न करें।                        
+             </marquee>
+             
+                 {% include "includes/messages.html" %}
+             <h3 class="page-title">Add Details</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="students.html"> Add Customer</a></li>
+                <li class="breadcrumb-item active">please add carefully </li>
+             </ul>
+          </div>
+       </div>
+       <p></p>
+       
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form method="POST" id="detailsForm" action="{% url 'update_key' %}" enctype= "multipart/form-data">
+                 {% csrf_token %}
+                   <div class="row">
+                      <div class="col-12">
+                         <h3 class="form-title text-danger"><span>Please Edit Carefully Otherwise your Payment methods Defective</span></h3>
+                      </div>
+                      
+                    <div class="col-12 col-sm-7">
+                        <div class="form-group">
+                           <label>Key Id</label>
+                           <input type="text" class="form-control" name='key_id'  >
+                        </div>
+                     </div>
+                    
+                      <div class="col-12 col-sm-7">
+                        <div class="form-group">
+                           <label>Secret Key</label>
+                           <input type="text" class="form-control" name='secret_key'  >
+                        </div>
+                     </div>
+                     
+                      
+                    
+                      <div class="col-12">
+                         
+
+                         <button type="submit" class="btn btn-primary">Edit Detail</button>
+                      </div>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+{% endblock content %}
+
+
+

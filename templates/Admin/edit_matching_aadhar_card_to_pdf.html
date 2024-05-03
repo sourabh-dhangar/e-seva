@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <marquee style="color: red;">
+
+               
+                क्रप्या कर के जानकारी भरते समय रिफ्रेश न करें।                        
+             </marquee>
+             
+                 {% include "includes/messages.html" %}
+             <h3 class="page-title">Add Details</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="students.html"> Add Customer</a></li>
+                <li class="breadcrumb-item active">please add carefully </li>
+             </ul>
+          </div>
+       </div>
+       <p></p>
+       
+    </div>
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+                <form method="POST" id="detailsForm" action="{% url 'matching_aadhar_to_pdf_save' %}" enctype= "multipart/form-data">
+                 {% csrf_token %}
+                   <div class="row">
+                      <div class="col-12">
+                         <h5 class="form-title"><span>Your Information</span></h5>
+                      </div>
+                      
+                      <div class="col-12 col-sm-7">
+                        <div class="form-group">
+                            <label for="gender">Status</label>
+                            <select id="gender" name="status" class="form-control"  required >
+                                <option value="0">Pending</option>
+                                <option value="1">Processing</option>
+                                <option value="2">Processed</option>
+                                <input type="hidden" name="customer_id" value="{{ customer.id }}">
+
+                            </select>
+                        </div>
+                    </div>
+                    
+                      <div class="col-12 col-sm-7">
+                        <div class="form-group">
+                           <label> upload file</label>
+                           <input type="file" class="form-control" name='download_file'  >
+                        </div>
+                     </div>
+                     
+                      
+                    
+                      <div class="col-12">
+                        <input type="hidden" name="prev_date" id="current_date">
+                         <button type="submit" class="btn btn-primary">Edit Detail</button>
+                      </div>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="content container-fluid ">
+    <div class="page-header">
+      <div class="row">
+        <div class="col-12" >
+          <div   class="card bg-two" data-scroll-index="7">
+            <div class="card-body ">
+              <div class="db-widgets  justify-content-between align-items-center">
+                  
+                  <h5 class="text-center text-danger " > When You Can take help</h5>
+  
+                  <ol class="list-group ">
+                      <marquee style="color: red;">
+                          ध्यान रहे यदि आप गलत भुगतान या किसी  तरह की धोखाधड़ी  करने की कोशिश करते हैं तो आपका खाता बंद कर दिया जाएगा।          Keep in mind that if you make wrong payment or try to commit any kind of fraud, your account will be closed.           
+                       </marquee>
+                      <li class=" list-group-item   bg-transparent ">When you are making payment and facing any kind of problem then you can take help from the help center. <br>जब आप पेमेंट कर रहे हों और किसी तरह की दिक्कत आ रही हो तो हेल्प सेंटर से मदद ले सकते हैं।</li>
+                      <li class="list-group-item  bg-transparent ">If your payment has been made and your service has not been delivered and the status is showing Pending then immediately seek support from the help center.<br>यदि आपका भुगतान हो चुका है और आपकी सेवा वितरित नहीं हुई है और status pending दिखा रही है तो तुरंत सहायता केंद्र से सहायता लें। </li>
+                      <li class="list-group-item  bg-transparent  ">If it has been 7 days since you applied and the status is showing pending then immediately seek help from the help center. <br>अगर आपको आवेदन किए 7 दिन हो गए हैं और स्टेटस पेंडिंग दिखा रहा है तो तुरंत सहायता केंद्र से मदद लें। </li>
+                      <li class="list-group-item  bg-transparent text-danger">If you use wrong payment method, your account will be permanently closed. <br>यदि आप गलत भुगतान विधि का उपयोग करते हैं, तो आपका खाता स्थायी रूप से बंद कर दिया जाएगा।</li>
+                      <li class="list-group-item  bg-transparent ">If you need any kind of information related to the site then you can take help from the help center.<br>अगर आपको साइट से जुड़ी किसी भी तरह की जानकारी चाहिए तो आप हेल्प सेंटर से मदद ले सकते हैं।</li>
+                    </ol>
+                    
+  
+              </div>
+              <div class="col-12 text-center mt-3">
+                <a  class="btn btn-primary" href="{% url 'help_apply' %}"> Go To Help Center</a>
+             </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

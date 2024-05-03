@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content container-fluid">
+       <div class="page-header">
+          <div class="row align-items-center">
+             <div class="col">
+                {% include "includes/messages.html" %}
+                <h3 class="page-title">Set Key</h3>
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item"><a href="index.html">Please Set Key Carefully Otherwise your payment is not working</a></li>
+                   <li class="breadcrumb-item active">Set Properly</li>
+                </ul>
+             </div>
+             <div class="col-auto text-right float-right ml-auto">
+                <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+                <a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-sm-12">
+             <div class="card card-table">
+                <div class="card-body">
+                   <div class="table-responsive">
+                      <table id="table_id" class="table table-hover table-center mb-0 ">
+                         <thead>
+                            <tr>
+                               <th>ID</th>
+                               <th>Key Id</th>
+                              
+                               <th>Secret Key</th>
+                               <th> Edit</th>
+                               
+                               
+                            </tr>
+                         </thead>
+                         <tbody>
+                            
+                             <td>{{key.id}}</td>
+                             <td>{{key.key_id}}</td>
+                             <td>{{key.secret_key}}</td>
+                            <td class="text-left">
+                                <div class="actions">
+                                  <a href="{% url 'edit_key' %}" class="btn btn-sm bg-danger-light mr-2">
+                                      <i class="fas fa-pen"></i> Edit
+                                  </a>
+                                  
+                                </div>
+                             </td>
+                              
+                            
+                               
+                               
+                            </tr>
+                            
+                        
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+
+{% endblock content %}

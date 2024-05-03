@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% if status %}
+<div class="container text-center">
+    <img src="{%static 'assets/img/sucess.png' %}" alt="Sucess mage">
+   
+    <h1> your payment  sucessfull </h1>   </div>
+{% else %}
+<div class="container text-center">
+    <h1> opps youe payment falid try again</h1>
+   </div>
+{% endif %}
+{% endblock content %}

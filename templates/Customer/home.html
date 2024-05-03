@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block content %}
+{% load static %}
+<div class="jumbotron p-3  p-md-5  rounded  row"  style="background-image: linear-gradient(to right, rgba(90, 100, 232, 0.9), rgba(84, 96, 234, 0.9));">
+  <div class="col px-1 col-md-6">
+    <h1 class="display-4 font-italic">Welcome to online seva dashboard</h1>
+    <p class="lead my-3">We are hare to make your life easier and more comfortable. Please make sure are you use good payment</p>
+    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+  </div>
+  <div class="col-md-6 text-center rounded overflow-hidden">
+    <img src="{%static 'assets/img/homebg1.png' %}" alt="" class="rounded">
+  </div>
+</div>
+<div class="content container-fluid ">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-12" >
+        <div   class="card bg-two" data-scroll-index="7">
+          <div class="card-body ">
+            <div class="db-widgets  justify-content-between align-items-center">
+                
+                <h5 class="text-center text-danger " > Important information</h5>
+
+                <ol class="list-group ">
+                    <marquee style="color: red;">
+                        ध्यान रहे यदि आप गलत भुगतान या किसी  तरह की धोखाधड़ी  करने की कोशिश करते हैं तो आपका खाता बंद कर दिया जाएगा।          Keep in mind that if you make wrong payment or try to commit any kind of fraud, your account will be closed.           
+                     </marquee>
+                    <li class=" list-group-item   bg-transparent ">If you are logging in for the first time, please update your profile. <br> यदि आप पहली बार लॉग इन कर रहे हैं, तो कृपया अपना प्रोफ़ाइल अपडेट करें। </li>
+                    <li class="list-group-item  bg-transparent ">While filling the information, take care not to fill any wrong information. <br>जानकारी भरते समय ध्यान रखें कि कोई भी गलत जानकारी न भरें। </li>
+                    <li class="list-group-item  bg-transparent  ">If you do not receive your information, your money will be returned to you. <br>यदि आपको अपनी जानकारी नहीं मिलती है, तो आपका पैसा आपको वापस कर दिया जाएगा। </li>
+                    <li class="list-group-item  bg-transparent text-danger">If you use wrong payment method, your account will be permanently closed. <br>यदि आप गलत भुगतान विधि का उपयोग करते हैं, तो आपका खाता स्थायी रूप से बंद कर दिया जाएगा।</li>
+                    <li class="list-group-item  bg-transparent ">Wait after filling the information, you will be given the correct information.<br>जानकारी भरने के बाद इंतजार करें, आपको सही जानकारी दी जाएगी।</li>
+                  </ol>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3 col-sm-6 col-12">
+       <div class="card flex-fill fb sm-box">
+          <i class="fab fa-facebook"></i>
+          <h6>Follow us on</h6>
+          <p>facebook</p>
+       </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12">
+       <div class="card flex-fill twitter sm-box">
+          <i class="fab fa-twitter"></i>
+          <h6>Follow us on </h6>
+          <p>Telegram</p>
+       </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12">
+       <div class="card flex-fill insta sm-box">
+          <i class="fab fa-instagram"></i>
+          <h6>Follow us on </h6>
+          <p>instagram</p>
+       </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12">
+       <div class="card flex-fill linkedin sm-box">
+          <i class="fab fa-linkedin-in"></i>
+          <h6>connect with us </h6>
+          <p>linkdin</p>
+       </div>
+    </div>
+ </div>
+</div>
+{% endblock content %} {% include "footer.html" %}

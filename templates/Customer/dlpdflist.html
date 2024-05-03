@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content container-fluid">
+       <div class="page-header">
+          <div class="row align-items-center">
+             <div class="col">
+                {% include "includes/messages.html" %}
+                <h3 class="page-title">Driving Licence PDF</h3>
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item"><a href="index.html">Driving Licence</a></li>
+                   <li class="breadcrumb-item active">Driving Licence PDF</li>
+                </ul>
+             </div>
+             <div class="col-auto text-right float-right ml-auto">
+                <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+                <a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-sm-12">
+             <div class="card card-table">
+                <div class="card-body">
+                   <div class="table-responsive">
+                      <table id="table_id" class="table table-hover table-center mb-0 ">
+                         <thead>
+                            <tr>
+                               <th>ID</th>
+                               <th> Name</th>
+                               <th>DL Number</th>
+                               <th>Date of Birth</th>
+                               <th>Mobile Number</th>
+                               <th>Status </th>
+                               
+                               <th>Download</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            {% for i in customer  %}
+                            <tr>
+                               <td>{{i.id}}</td>
+                               <td>{{i.name}}</td>
+                               <td>{{i.dl_number}}</td>
+                               <td> {{i.dob}} </td>
+                               <td> {{i.mobile_number}} </td>
+                               <td>
+                                 {% if i.status == 0 %}
+                                 <p class="text-danger">Pending</p>
+                                 {% elif i.status == 1 %}
+                                 <p class="text-warning">Processing</p>
+                                 {% else %}
+                                 <p class="text-success">Processed</p>
+                                 {% endif %}
+                             </td>
+                             
+                           
+                            <td>
+                              {% if i.upload_file %}
+                                  <a href="{{ i.upload_file.url }}" download>
+                                      <img src="{{ i.upload_file.url }}" alt="Uploaded Image" style="width: 50px; height: 25px;">
+                                  </a>
+                              {% else %}
+                                  No file attach
+                              {% endif %}
+                          </td>
+                               
+                            </tr>
+                            
+                            {% endfor %}
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+
+{% endblock content %}
